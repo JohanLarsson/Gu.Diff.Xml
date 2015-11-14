@@ -51,7 +51,7 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="DiffTests.fs" />
+    <Compile Include="ParseTests.fs" />
     <None Include="Script.fsx" />
     <Content Include="paket.references" />
   </ItemGroup>
@@ -64,6 +64,13 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gu.Diff.Xml\Gu.Diff.Xml.fsproj">
+      <Name>Gu.Diff.Xml</Name>
+      <Project>{ccb93e4f-5744-4606-9d9c-d64e5c0d362a}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
