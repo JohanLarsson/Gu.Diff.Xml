@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{0378589C-C89F-43F3-B21B-0BF10A097477}"
-EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Gu.Diff.Xml", "Gu.Diff.Xml\Gu.Diff.Xml.fsproj", "{CCB93E4F-5744-4606-9D9C-D64E5C0D362A}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Gu.Diff.Xml.Tests", "Gu.Diff.Xml.Tests\Gu.Diff.Xml.Tests.fsproj", "{D929BFEC-9738-4575-8485-D1644A41A9D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{2376F248-89DE-4E35-83BB-FBB40B01E346}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+		paket.lock = paket.lock
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
