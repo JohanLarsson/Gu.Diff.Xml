@@ -8,7 +8,7 @@ module Parsing =
         { Document : XDocument
           Xml : string }
 
-    type XmlExcpetionSource = 
+    type ExcpetionAndSource = 
         { Excption : Exception
           Xml : string }
 
