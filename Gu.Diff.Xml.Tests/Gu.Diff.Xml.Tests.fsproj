@@ -54,6 +54,7 @@
     <Compile Include="ParseTests.fs" />
     <None Include="Script.fsx" />
     <Content Include="paket.references" />
+    <Compile Include="TypesTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
