@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{2376F2
 		paket.lock = paket.lock
 	EndProjectSection
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Gu.Diff.Xml.SandBox", "Gu.Diff.Xml.SandBox\Gu.Diff.Xml.SandBox.fsproj", "{434F0125-A4AC-4601-9673-F3DD0ADECEEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D929BFEC-9738-4575-8485-D1644A41A9D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D929BFEC-9738-4575-8485-D1644A41A9D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D929BFEC-9738-4575-8485-D1644A41A9D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{434F0125-A4AC-4601-9673-F3DD0ADECEEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434F0125-A4AC-4601-9673-F3DD0ADECEEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434F0125-A4AC-4601-9673-F3DD0ADECEEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434F0125-A4AC-4601-9673-F3DD0ADECEEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

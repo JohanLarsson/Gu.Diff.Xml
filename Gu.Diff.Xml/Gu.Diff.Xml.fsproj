@@ -45,6 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Helpers.fs" />
+    <Compile Include="Types.fs" />
+    <Compile Include="Check.fs" />
     <Compile Include="Compare.fs" />
     <None Include="Script.fsx" />
   </ItemGroup>
