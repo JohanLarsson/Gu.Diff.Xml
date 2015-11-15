@@ -4,18 +4,18 @@ open Microsoft.FSharp.Linq
 open System
 open System.Reflection
 open System.Xml.Linq
-
-let declarationProps =
-        [| 
-            fun (x:XDeclaration) -> box (x.Encoding)
-            fun (x:XDeclaration) -> box (x.Version)
-            fun (x:XDeclaration) -> box (x.Standalone)
-        |]
+open System.Collections.Generic
 
 let checkDeclarations first other =
-    declarationProps
-    // return  declarationProps.Where(x => x(first) != x(other))
-    //                         .Select(x => new Diff(first, other, GetPropertyInfo(x))
+    let properties =
+            [| 
+                PropertyComparer<XDeclaration, string>(<@ fun x -> x.Version @>) :> IPropertyComparer<XDeclaration, string>
+                PropertyComparer<XDeclaration, string>(<@ fun x -> x.Encoding @>) :> IPropertyComparer<XDeclaration, string>
+                PropertyComparer<XDeclaration, string>(<@ fun x -> x.Standalone @>) :> IPropertyComparer<XDeclaration, string>
+            |]
+    properties 
+    |> Seq.filter (fun x -> x.Equals(first, other))
+    |> Seq.map (fun x -> {First= first; Other= other; Property= x.PropertyInfo})
 
 let all first other =
     Seq.empty

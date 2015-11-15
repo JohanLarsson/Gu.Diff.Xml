@@ -21,7 +21,7 @@ let ``test XDeclaration not equal encoding``()=
 
 [<Fact>]
 let ``PropertyComparer PropertyInfo``()=
-    let comparer = PropertyComparer<XDeclaration, string>(<@ fun x -> x.Encoding @>)
+    let comparer = PropertyComparer<XDeclaration, string>(<@ fun x -> x.Encoding @>) :> IPropertyComparer<XDeclaration,string>
     let expected = typeof<XDeclaration>.GetProperty("Encoding")
     Assert.Equal(expected, comparer.PropertyInfo)
 
