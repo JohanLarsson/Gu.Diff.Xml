@@ -13,6 +13,13 @@ let ``test XDeclaration equal encoding``()=
     Assert.True(comparer.Equals(d1, d2))
 
 [<Fact>]
+let ``test XDeclaration equal encoding using factory``()=
+    let comparer = Create.PropertyComparer <@ fun (x:XDeclaration) -> x.Encoding @>
+    let d1 = XDeclaration("", "utf-8", "")
+    let d2 = XDeclaration("", "utf-8", "")
+    Assert.True(comparer.Equals(d1, d2))
+
+[<Fact>]
 let ``test XDeclaration not equal encoding``()=
     let comparer = PropertyComparer<XDeclaration, string>(<@ fun x -> x.Encoding @>) :> IEqualityComparer<XDeclaration>
     let d1 = XDeclaration("", "utf-8", "")
@@ -21,7 +28,7 @@ let ``test XDeclaration not equal encoding``()=
 
 [<Fact>]
 let ``PropertyComparer PropertyInfo``()=
-    let comparer = PropertyComparer<XDeclaration, string>(<@ fun x -> x.Encoding @>) :> IPropertyComparer<XDeclaration,string>
+    let comparer = PropertyComparer<XDeclaration, string>(<@ fun x -> x.Encoding @>) :> IPropertyComparer<XDeclaration>
     let expected = typeof<XDeclaration>.GetProperty("Encoding")
     Assert.Equal(expected, comparer.PropertyInfo)
 

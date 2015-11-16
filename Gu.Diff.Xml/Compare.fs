@@ -21,8 +21,8 @@ module internal Parse =
     
     let documents first other = (text first), (text other)
 
-let public Documents(first, other) = 
-    let docs = Parse.documents first other
-    match docs with
-    | (Document first, Document other) -> Check.all first other
-    | (_, _) -> failwith "fail"
+//let public Documents(first, other) = 
+//    let docs = Parse.documents first other
+//    match docs with
+//    | (Document first, Document other) -> Check.all first other
+//    | (_, _) -> failwith "fail"

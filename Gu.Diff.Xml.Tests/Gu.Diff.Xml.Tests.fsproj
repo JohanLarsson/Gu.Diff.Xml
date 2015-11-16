@@ -55,6 +55,7 @@
     <None Include="Script.fsx" />
     <Content Include="paket.references" />
     <Compile Include="TypesTests.fs" />
+    <Compile Include="CheckTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
