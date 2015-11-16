@@ -2,21 +2,35 @@
 
 open System.Xml.Linq
 
-let declarationProperties : IPropertyComparer<XDeclaration>[] =
-        [| 
-            Create.PropertyComparer <@ fun (x:XDeclaration) -> x.Version @>
-            Create.PropertyComparer <@ fun (x:XDeclaration) -> x.Encoding @>
-            Create.PropertyComparer <@ fun (x:XDeclaration) -> x.Standalone @>
-        |]
 
-let check (properties: seq<IPropertyComparer<'t>>) (first: 't) (other: 't) =
+let check (properties: seq<IPropertyEqualityComparer<'t>>) (first: 't) (other: 't) =
     properties 
     |> Seq.filter (fun x -> not (x.Equals(first, other)))
-    |> Seq.map (fun x -> { First= first; Other= other; Property= x.PropertyInfo })
+    |> Seq.map (fun x -> CreateDiff.For first other x.PropertyInfo)
+
+let declarationProperties : IPropertyEqualityComparer<XDeclaration>[] =
+        [| 
+            CreateEqualityComparer.ForProperty<XDeclaration> <@ fun x -> x.Version @>
+            CreateEqualityComparer.ForProperty<XDeclaration> <@ fun x -> x.Encoding @>
+            CreateEqualityComparer.ForProperty<XDeclaration> <@ fun x -> x.Standalone @>
+        |]
       
-let checkDeclarations first other = check declarationProperties first other
+let checkDeclaration first other = check declarationProperties first other
+
+let attributeProperties : IPropertyEqualityComparer<XAttribute>[] =
+        [| 
+//            CreateEqualityComparer.ForProperty<XAttribute> <@ fun x -> x.Name @>
+            CreateEqualityComparer.ForProperty<XAttribute> <@ fun x -> x.Value @>
+        |]
+
+let checkAttribute first other = check attributeProperties first other
+
+//let checkAttributes first other =
+//    first.
+    
 
 let all first other =
     seq{
-        yield checkDeclarations first other
+        yield checkDeclaration first other
+//        yield checkAttributes first other
     }
