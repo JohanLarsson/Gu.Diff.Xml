@@ -41,9 +41,10 @@ module internal CreateEqualityComparer =
     let ForProperty<'TSource when 'TSource: null> (prop: Expr<'TSource -> string>) =
         let property = PropertyInfo.FromExpression prop
         PropertyEqualityComparer(property, (fun (x, y) -> x = y), (fun x -> x.GetHashCode())) :> IPropertyEqualityComparer<'TSource>
-
-//    let ForXName (prop: Expr<'TSource -> System.Xml.Linq.XName>) =
-//        PropertyEqualityComparer(prop) :> IPropertyEqualityComparer<'TSource>
+    
+    let ForXName<'TSource when 'TSource: null> (prop: Expr<'TSource -> System.Xml.Linq.XName>) =
+        let property = PropertyInfo.FromExpression prop
+        PropertyEqualityComparer(property, (fun (x, y) -> x = y), (fun x -> x.GetHashCode())) :> IPropertyEqualityComparer<'TSource>
 
 
 

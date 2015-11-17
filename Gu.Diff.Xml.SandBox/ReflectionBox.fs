@@ -35,8 +35,3 @@ let ``get property``() =
     let prop = getProperty<string> "Length"
     Assert.Equal(prop.Name, "Length")
 
-//[<Fact>]
-//let ``declaration``() = 
-//    let d1 = XDeclaration("version", "encoding", "standalone")
-//    let d2 = XDeclaration("version", "encoding", "standalone")
-//    Assert.Equal(declaration.Name, "Length")
