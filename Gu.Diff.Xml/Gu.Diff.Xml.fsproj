@@ -47,7 +47,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Comparers.fs" />
     <Compile Include="Types.fs" />
-    <Compile Include="Check.fs" />
+    <Compile Include="GetDiff.fs" />
     <Compile Include="Compare.fs" />
     <None Include="Script.fsx" />
   </ItemGroup>
