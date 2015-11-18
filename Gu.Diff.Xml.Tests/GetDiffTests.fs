@@ -1,4 +1,4 @@
-﻿module Gu.Diff.Xml.Tests.CheckTests
+﻿module Gu.Diff.Xml.Tests.GetDiff
 
 open System.Xml.Linq
 open Xunit
@@ -18,10 +18,8 @@ let ``check not equal declarations returns diffs``() =
     let d2 = XDeclaration("1.0", "utf-16", null)
     let actual = GetDiff.forDeclaration d1 d2
     Assert.True(actual.IsSome)
-    let actual = 
-        actual.Value.Diffs
-        |> Seq.cast<IPropertyDiff>
-        |> Seq.exactlyOne
+    let actual = actual.Value.Diffs
+                 |> Seq.exactlyOne |>(fun x -> x:?>IPropertyDiff)
     Assert.Equal(d1.ToString(), actual.First)
     Assert.Equal(d2.ToString(), actual.Other)
     Assert.Equal("Encoding", actual.PropertyName)
@@ -39,10 +37,8 @@ let ``check attributes with different values returns diffs``() =
     let a2 = XAttribute(XName.Get("Value", "x"), 2)
     let actual = GetDiff.forAttribute a1 a2
     Assert.True(actual.IsSome)
-    let actual = 
-        actual.Value.Diffs
-        |> Seq.cast<IPropertyDiff>
-        |> Seq.exactlyOne
+    let actual = actual.Value.Diffs
+                 |> Seq.exactlyOne |>(fun x -> x:?>IPropertyDiff)
     Assert.Equal(a1.ToString(), actual.First)
     Assert.Equal(a2.ToString(), actual.Other)
     Assert.Equal("Value", actual.PropertyName)
@@ -53,10 +49,8 @@ let ``attributes with different names returns diffs``() =
     let a2 = XAttribute(XName.Get("Name2", "x"), 1)
     let actual = GetDiff.forAttribute a1 a2
     Assert.True(actual.IsSome)
-    let actual = 
-        actual.Value.Diffs
-        |> Seq.cast<IPropertyDiff>
-        |> Seq.exactlyOne
+    let actual = actual.Value.Diffs
+                 |> Seq.exactlyOne |>(fun x -> x:?>IPropertyDiff)
     Assert.Equal(a1.ToString(), actual.First)
     Assert.Equal(a2.ToString(), actual.Other)
     Assert.Equal("Name", actual.PropertyName)
