@@ -20,4 +20,4 @@ module internal Seq =
         let s2 = s2 |> asInfinite
         Seq.zip s1 s2
         |> Seq.takeWhile (fun (x, y) -> x.IsSome || y.IsSome)
-        |> Seq.map (fun (x, y) -> f (x, y))
+        |> Seq.map (fun (x, y) -> f x y)
